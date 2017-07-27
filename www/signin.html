@@ -1,0 +1,58 @@
+		<div data-role="page" id="page_signin">
+
+			<nd2-include data-src="fragments/panel.left.html"></nd2-include>
+
+			<div data-role="header" data-position="fixed">
+				<a href="#leftpanel" class="ui-btn ui-btn-left><i class="fa fa-bars"></i></a>
+				<h1>Sign in</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+
+
+<fieldset>
+
+<!-- Form Name -->
+<legend>Form Name</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="signin_organisation">Organisation</label>  
+  <div class="col-md-5">
+  <input id="signin_organisation" name="signin_organisation" type="text" placeholder="OrganisationA" class="form-control input-md" required="">
+  <span class="help-block">Enter your organisation name. If you do not know it please contact your administrator.</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="signin_email">Email</label>  
+  <div class="col-md-5">
+  <input id="signin_email" name="signin_email" type="email" placeholder="email@organisation.example" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="signin_password">Password</label>
+  <div class="col-md-5">
+    <input id="signin_password" name="signin_password" type="password" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="signin"></label>
+  <div class="col-md-8">
+    <button id="signin" name="signin" class="btn btn-success" onclick="signin();">Sign in</button>
+    <button id="cancel" name="cancel" class="btn btn-danger" onclick="$('input').val('');">Cancel sign in</button>
+  </div>
+</div>
+
+</fieldset>
+
+
+			</div>
+		</div>
