@@ -60,6 +60,7 @@ function signin() {
 		data=JSON.parse(data);
 		//status is only true if successful
 		if (data.status) {
+			localStorage.signedin=true;
 			//store jwt creds
 		} else {
 			switch (data.reason) {
