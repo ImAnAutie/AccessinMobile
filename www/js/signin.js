@@ -10,17 +10,9 @@ $(document).on( "pagecontainershow", function( event, ui ) {
                 };
         } else {
                 if (pageid=="page_index") {
-                        console.log("Signed in, attempting token refresh");
-
-			$.post( "https://accessin.okonetwork.org.uk/mobileapi/refresh", { refresh: localStorage.refreshtoken}, function(data) {
-				data=JSON.parse(data);
-				console.log(data);
-	                        $.mobile.navigate('app.html');
-			}).fail(function(err) {
-				console.log("Token refresh failed.");
-				console.log(err);
-	                        $.mobile.navigate('app.html');
-			});
+                        console.log("Signed in, triggering refresh of everything and redirecting to app page");
+			refreshall();
+	                $.mobile.navigate('app.html');
 			return false;
                 };
                 if (pageid=="page_signin") {
@@ -102,5 +94,16 @@ function signin() {
 		console.log(err);
 		$.mobile.loading( "hide" );
 		alert("Sorry an error occured communicating with the server, please try again.");
+	});
+};
+
+
+function refreshtokens() {
+	$.post( "https://accessin.okonetwork.org.uk/mobileapi/refresh", { refresh: localStorage.refreshtoken}, function(data) {
+		data=JSON.parse(data);
+		console.log(data);
+	}).fail(function(err) {
+		console.log("Token refresh failed.");
+                console.log(err);
 	});
 };
