@@ -99,11 +99,25 @@ function signin() {
 
 
 function refreshtokens() {
-	$.post( "https://accessin.okonetwork.org.uk/mobileapi/refresh", { refresh: localStorage.refreshtoken}, function(data) {
+	$.ajax({
+	  url : "https://accessin.okonetwork.org.uk/mobileapi/refreshtoken",
+	    type : 'get',
+	    beforeSend : function( xhr ) {
+		//Because this is a refreshtoken request it is indeed correct to be using the refreshtoken.
+		//All other requests will use the accesstoken instead.
+	        xhr.setRequestHeader( "Authorization", "BEARER " + localStorage.refreshtoken );
+	    },
+	    success : function (data) {
+		alert(data);
 		data=JSON.parse(data);
 		console.log(data);
-	}).fail(function(err) {
-		console.log("Token refresh failed.");
-                console.log(err);
+//		localStorage.accesstoken=data.accesstoken;
+//                localStorage.refreshtoken=data.refreshtoken;
+	    },
+	    error : function (data, errorThrown) {
+		console.log("Error refreshing tokens");
+		console.log(data);
+		console.log(errorThrown);
+	    }
 	});
 };

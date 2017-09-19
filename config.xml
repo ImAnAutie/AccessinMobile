@@ -2,7 +2,7 @@
 <widget id="uk.org.okonetwork.accessinmobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Accessin Mobile</name>
     <description>
-        Unlock doors with just a shake of your phone with Accessin
+        Unlock doors with just your phone with Accessin
     </description>
     <author email="support@okonetwork.org.uk" href="https://okonetwork.org.uk">
         The Oko Network
